@@ -9,14 +9,14 @@ from youtube_api import YoutubeDataApi
 import config
 
 # Set Configurations
-client_id               = config.SPOTIFY_CLIENT_ID
-client_secret           = config.SPOTIFY_API_SECRET
-yt_api_key              = config.YOUTUBE_API_SECRET
+spotify_client_id               = config.SPOTIFY_CLIENT_ID
+spotify_client_secret           = config.SPOTIFY_API_SECRET
+youtube_data_api_key              = config.YOUTUBE_API_SECRET
 youtube_dl_options      = config.YOUTUBE_DL_OPTIONS
 
 # Authenticate APIs
-sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(client_id, client_secret))
-yt = YoutubeDataApi(yt_api_key)
+sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(spotify_client_id, spotify_client_secret))
+yt = YoutubeDataApi(youtube_data_api_key)
 
 def main():
     playlist_uris = sys.argv[1:]
@@ -27,12 +27,6 @@ def main():
         download_tracks(get_tracks(sp.playlist_tracks(pl_uri, fields='items.track.album.artists, items.track.name')))
        
 def download_tracks(tracks):
-    try:
-        os.chdir('./output')
-    except:
-        print('output folder does not exist.')
-        return
-    
     for i in range(len(tracks)):
             video_id = yt.search(q=tracks[i]['artist'] + ' ' + tracks[i]['track_name'], max_results=5)[0]['video_id']
             with youtube_dl.YoutubeDL(youtube_dl_options) as ydl:
@@ -51,6 +45,7 @@ def get_tracks(playlist):
 def create_output_dir():
     if not os.path.exists('output'):
         os.makedirs('output')
+        os.chdir('output')
     return
 
 if __name__ == "__main__":
