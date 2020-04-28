@@ -9,9 +9,9 @@ from youtube_api import YoutubeDataApi
 import config
 
 # Set Configurations
-spotify_client_id               = config.SPOTIFY_CLIENT_ID
-spotify_client_secret           = config.SPOTIFY_API_SECRET
-youtube_data_api_key              = config.YOUTUBE_API_SECRET
+spotify_client_id       = config.SPOTIFY_CLIENT_ID
+spotify_client_secret   = config.SPOTIFY_API_SECRET
+youtube_data_api_key    = config.YOUTUBE_API_SECRET
 youtube_dl_options      = config.YOUTUBE_DL_OPTIONS
 
 # Authenticate APIs
