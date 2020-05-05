@@ -45,12 +45,11 @@ class TestPlaylistDownloader(unittest.TestCase):
             			'track_name': track['track']['name'],
             		}
 			tracks.append(track_info)
-
+		
 		self.assertEqual(tracks[0]['artist'] + " " + tracks[0]['track_name'], "AC/DC Highway to Hell", "@method test_playlist_uri TEST 1: Playlist URI Error")
 		self.assertEqual(tracks[1]['artist'] + " " + tracks[1]['track_name'], "Michael Jackson Billie Jean", "@method test_playlist_uri TEST 2: Playlist URI Error")
 		self.assertEqual(tracks[2]['artist'] + " " + tracks[2]['track_name'], "Rick Astley Never Gonna Give You Up", "@method test_playlist_uri TEST 3: Playlist URI Error") 
 
 if __name__=='__main__':
-		
 	unittest.main()
 	
