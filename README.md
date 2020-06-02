@@ -39,5 +39,3 @@ To run the program:
 ```
 python main.py uri_1 uri_2 uri_3 .. ..
 ```
-
-`python main.py uri_1 uri_2 uri_3 ..  ..`
