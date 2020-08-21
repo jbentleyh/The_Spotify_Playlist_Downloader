@@ -45,7 +45,7 @@ def get_tracks(playlist):
 def create_output_dir():
     if not os.path.exists('output'):
         os.makedirs('output')
-        os.chdir('output')
+    os.chdir('output')
     return
 
 if __name__ == "__main__":
